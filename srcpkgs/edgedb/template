@@ -1,0 +1,62 @@
+# Template file for 'edgedb'
+
+# things todo:
+# - rust 1.15 on void-packages
+# - try to build it off tar files alone, somehow
+#    instead of git cloning. maybe we could just clone at a specific commit
+#    i need to re-check the manual
+
+pkgname=edgedb
+version=1.0a4
+revision=1
+build_style=
+archs="x86_64*"
+hostmakedepends="git"
+makedepends="make tar gcc rust cargo autoconf
+ python3 python3-virtualenv python3-devel
+ bison flex perl zlib
+ readline readline-devel
+ libuuid libuuid-devel"
+depends="readline libuuid"
+license="Apache-2.0"
+# TODO: short_desc
+short_desc="TODO!!!"
+homepage="https://edgedb.com"
+maintainer="Luna <luna@l4.pm>"
+
+#distfiles="https://github.com/edgedb/edgedb/archive/v${version}.tar.gz"
+#checksum=76296bbacfafc78d6e21e0cbfd8f7d343b74f6652631c746841b92791af4f8e1
+
+do_extract() {
+	# TODO: wait for proper edgedb-python release on par with v1.0a4
+	echo "test"
+}
+
+do_build() {
+	rm -rfv ${wrksrc}/edgedb-python
+	rm -rfv ${wrksrc}/edgedb
+	git clone --recursive https://github.com/edgedb/edgedb-python.git ${wrksrc}/edgedb-python
+
+	mkdir -p ${wrksrc}/edgedb
+	git clone --recursive https://github.com/edgedb/edgedb.git ${wrksrc}/edgedb
+
+	# build edgedb-python
+	python3.8 -m venv ${wrksrc}/edgedb-dev
+	venv_py=${wrksrc}/edgedb-dev/bin/python
+	venv_pip=${wrksrc}/edgedb-dev/bin/pip
+
+	cd ${wrksrc}/edgedb-python
+	$venv_pip install -v .
+
+	# build edgedb itself
+	cd ${wrksrc}/edgedb
+	$venv_pip install -v ".[test,docs]"
+}
+
+do_check() {
+	${wrksrc}/edgedb-dev/edb test
+}
+
+do_install() {
+	echo "TODO: install"
+}
