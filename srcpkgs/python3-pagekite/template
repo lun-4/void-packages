@@ -1,0 +1,15 @@
+# Template file for 'python3-pagekite'
+pkgname=python3-pagekite
+version=1.5.2.201011
+revision=1
+wrksrc=PyPagekite-${version}
+build_style=python3-module
+hostmakedepends="python3-setuptools"
+makedepends=""
+depends="python3-socksipychain"
+short_desc="Python implementation of the PageKite remote front-end protocols."
+maintainer="Luna <voidlinux@l4.pm>"
+license="AGPL-3.0-or-later"
+homepage="https://pagekite.net"
+distfiles="https://github.com/pagekite/PyPagekite/archive/refs/tags/v${version}.tar.gz"
+checksum=df8cb798d8b6b3910d5ec6a84d6d5a885f89c7a68444886fe389f32fe2a73e6c
