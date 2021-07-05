@@ -1,0 +1,15 @@
+# Template file for 'python3-socksipychain'
+pkgname=python3-socksipychain
+version=2.1.2
+revision=1
+wrksrc=PySocksipyChain-${version}
+build_style=python3-module
+hostmakedepends="python3-setuptools"
+makedepends=""
+depends=""
+short_desc="Modified socks.py which supports chained proxies"
+maintainer="Luna <voidlinux@l4.pm>"
+license="GPL-3.0-or-later"
+homepage="http://pagekite.net/wiki/Floss/PySocksipyChain/"
+distfiles="https://github.com/pagekite/PySocksipyChain/archive/refs/tags/v${version}.tar.gz"
+checksum=91f1504959a71da5dbf31a8ab8fd6ab3136583473ad378772edbb73191efdc0e
