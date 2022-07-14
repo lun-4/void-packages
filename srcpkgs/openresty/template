@@ -1,18 +1,18 @@
 # Template file for 'openresty'
 pkgname=openresty
-version=1.19.3.1
+version=1.21.4.1
 revision=1
 build_style=configure
 configure_args="--with-pcre-jit --with-ipv6 --prefix=/opt/openresty"
 hostmakedepends=""
-makedepends="pcre-devel libpcre libssl48 libressl-devel perl curl"
+makedepends="pcre-devel libpcre openssl openssl-devel perl curl"
 depends=""
 short_desc="High Performance Web Platform Based on Nginx and LuaJIT"
 maintainer="Luna <luna@l4.pm>"
 license="TODO"
 homepage="https://openresty.org"
 distfiles="${homepage}/download/openresty-${version}.tar.gz"
-checksum=f36fcd9c51f4f9eb8aaab8c7f9e21018d5ce97694315b19cacd6ccf53ab03d5d
+checksum=0c5093b64f7821e85065c99e5d4e6cc31820cfd7f37b9a0dec84209d87a2af99
 
 conf_files="/opt/openresty/nginx/conf/fastcgi.conf
  /opt/openresty/nginx/conf/fastcgi_params
