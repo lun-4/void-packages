@@ -3,7 +3,7 @@ pkgname=openresty
 version=1.21.4.1
 revision=1
 build_style=configure
-configure_args="--with-pcre-jit --with-ipv6 --prefix=/opt/openresty"
+configure_args="--with-pcre-jit --with-ipv6 --with-threads --prefix=/opt/openresty"
 hostmakedepends=""
 makedepends="pcre-devel libpcre openssl openssl-devel perl curl"
 depends=""
