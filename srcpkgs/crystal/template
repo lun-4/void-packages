@@ -4,7 +4,7 @@
 # do not use this.
 
 pkgname=crystal
-version=1.2.0
+version=1.5.0
 revision=2
 archs="x86_64"
 hostmakedepends="which tar git llvm11 pkg-config"
@@ -18,7 +18,7 @@ maintainer="luna <personal_void@l4.pm>"
 license="Apache-2.0"
 homepage="https://crystal-lang.org/"
 distfiles="https://github.com/crystal-lang/crystal/releases/download/${version}/crystal-${version}-1-linux-x86_64.tar.gz>crystal-bin.tar.gz"
-checksum="af68bac40cc3973793a7f33d2f29d7b9ab4e6db60f66b515c2c5989aaee393ae"
+checksum="627360f0fc805202d80310007d503c7a2fc0745b1db2211537d7f54e9a994347"
 build_style=fetch
 
 do_extract() {
