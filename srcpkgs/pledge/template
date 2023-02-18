@@ -1,0 +1,27 @@
+# Template file for 'pledge'
+pkgname=pledge
+version=2.2
+revision=1
+hostmakedepends=""
+makedepends=""
+depends=""
+short_desc="launch linux commands in a sandbox"
+maintainer="Luna <git@l4.pm>"
+license="ISC"
+homepage="https://justine.lol/pledge/"
+distfiles="https://justine.lol/cosmopolitan/cosmopolitan-2.2.tar.gz"
+checksum=fb5b8c4b43bd950bdf55a319c160905c3f5b6cc5def1a49c43b07a58ec5074d0
+
+# do not strip binary as APE executables are fuckin weird
+nostrip=1
+
+do_build() {
+    # this is a weird build system. it fails midway through with issues
+    # from its own ld not supporting relro, but if you cd to masterdir/builddir
+    # and run this same make command it'll work.
+    make o//tool/build/pledge
+}
+
+do_install() {
+    vbin o/tool/build/pledge
+}
