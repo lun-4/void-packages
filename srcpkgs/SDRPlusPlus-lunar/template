@@ -1,0 +1,19 @@
+# Template file for 'SDRPlusPlus-lunar'
+pkgname=SDRPlusPlus-lunar
+version=1.0.0
+revision=1
+conflicts="SDRPlusPlus"
+build_style=cmake
+configure_args="-DOPT_BUILD_PLUTOSDR_SOURCE=0"
+depends="librtlsdr-blog"
+hostmakedepends="pkg-config"
+makedepends="fftw-devel glfw-devel volk-devel libzstd-devel glew-devel libusb-devel
+ librtlsdr-blog SoapySDR-devel libairspy-devel libairspyhf-devel libhackrf-devel
+ rtaudio-devel alsa-lib-devel pulseaudio-devel jack-devel"
+short_desc="Open source SDR software"
+maintainer="Luna <voidlinux@l4.pm>"
+license="GPL-3.0-only"
+homepage="https://github.com/AlexandreRouma/SDRPlusPlus"
+shapp_ref="da1417b5ab71bacbb9ae5884492cd64adccb8096"
+distfiles="https://github.com/AlexandreRouma/SDRPlusPlus/archive/${shapp_ref}.tar.gz"
+checksum=140893b507e663c14e6fc606895e632b67bb32f02f53779f9585d43c3605040f
