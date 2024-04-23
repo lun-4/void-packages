@@ -1,0 +1,30 @@
+# Template file for 'librtlsdr-blog'
+pkgname=librtlsdr-blog
+version=1.3.5
+revision=1
+conflicts="librtlsdr rtl-sdr librtlsdr-devel"
+build_style=cmake
+hostmakedepends="pkg-config"
+makedepends="libusb-devel"
+short_desc="Fork of rtlsdr for the RTL-SDR Blog V4"
+maintainer="Luna <voidlinux@l4.pm>"
+license="GPL-2.0-or-later"
+homepage="https://github.com/rtlsdrblog/rtl-sdr-blog"
+distfiles="https://github.com/rtlsdrblog/rtl-sdr-blog/archive/refs/tags/${version}.tar.gz"
+checksum=887f7767f3ba454e5f56da39c7ae08cd7158f897dcef4adb4c8027ace15e0d14
+
+pkg_install() {
+	vmove usr/include
+	vmove usr/lib/pkgconfig
+	vmove "usr/lib/*.a"
+	vmove "usr/lib/*.so"
+	vmove usr/bin
+}
+
+post_install() {
+	vmkdir usr/lib/modprobe.d
+	echo "blacklist dvb_usb_rtl28xxu" > ${DESTDIR}/usr/lib/modprobe.d/rtl-sdr-blog.conf
+	chmod 644 ${DESTDIR}/usr/lib/modprobe.d/rtl-sdr-blog.conf
+
+	vinstall rtl-sdr.rules 644 usr/lib/udev/rules.d 53-rtl-sdr-blog.rules
+}
