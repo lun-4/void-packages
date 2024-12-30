@@ -1,0 +1,21 @@
+# Template file for 'dotnet-bin'
+pkgname=dotnet-bin
+version=9.0.101
+revision=1
+build_style=fetch
+hostmakedepends="tar"
+makedepends=""
+depends=""
+short_desc="Dotnet runtime"
+maintainer="Luna <voidlinux@l4.pm>"
+license="proprietary"
+homepage="https://dotnet.microsoft.com"
+distfiles="https://download.visualstudio.microsoft.com/download/pr/d74fd2dd-3384-4952-924b-f5d492326e35/e91d8295d4cbe82ba3501e411d78c9b8/dotnet-sdk-9.0.101-linux-x64.tar.gz"
+checksum=c2fca3eeccc99936bee987721d075127a6202b3c2474e01c627f9976f0dd5655
+
+do_install() {
+	mkdir -p target
+	tar xvf ./dotnet-sdk-9.0.101-linux-x64.tar.gz -C target
+	vmkdir /opt/dotnet
+	vcopy ./target /opt/dotnet
+}
